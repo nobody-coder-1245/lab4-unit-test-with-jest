@@ -1,6 +1,6 @@
-// IndexPage.spec.js
 import IndexPage from 'src/pages/IndexPage.vue';
 import { shallowMount } from '@vue/test-utils';
+import { describe, expect, it } from '@jest/globals';
 
 describe('IndexPage', () => {
   it('should render correct contents', () => {
