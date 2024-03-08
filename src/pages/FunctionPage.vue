@@ -21,7 +21,7 @@
       <input type="text" id="firsName" v-model="firsName" />
       <input type="text" id="lastName" v-model="lastName" />
       <input type="text" id="stuId" v-model="stuId" />
-      <button id="name-combined-action" @click="nameCombined(firstValue, secondValue)">Combine</button>
+      <button id="name-combined-action" @click="addname(firstValue, secondValue)">Combine</button>
     </form>
   </div>
 </template>
