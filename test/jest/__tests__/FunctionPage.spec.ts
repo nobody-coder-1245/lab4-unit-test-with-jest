@@ -45,10 +45,29 @@ test('should have button', () => {
 
 // create test for the function addname
 test('trigger click event on button name and code', async () => {
+  // เทสข้อมูลชื่อ และ เลขนศ
   const wrapper = shallowMount(FunctionPage);
-  const button = wrapper.find('button');
+
+  // ค้นหาปุ่มที่มี id="name-combined-action" ที่จะรอฟังเหตุการณ์ (event) การเรียกใช้ฟังก์ชัน "addname"
+  const button = wrapper.find('button#name-combined-action');
+
+  // set data ที่ไว้ใช้เทสใน input fields
+  await wrapper.setData({
+        firstName: 'Traiphakh',
+        lastName: 'Sittikaew',
+        stuId: '6404101318'
+  });
+
+  // ทำ Object Destructure
+  const {firstName, lastName, stuId} = wrapper.vm
+
   await button.trigger('click');
-  expect(wrapper.vm.addname('Traiphakh', 'Sittikaew', '6404101318')).toBe(
+
+  expect(firstName).toBe('Traiphakh');
+  expect(lastName).toBe('Sittikaew');
+  expect(stuId).toBe('6404101318');
+
+  expect(wrapper.vm.addname(firstName, lastName, stuId)).toBe(
     'Traiphakh Sittikaew 6404101318'
   );
 });
